@@ -156,3 +156,9 @@ To enhance model performance:
 
 Github URL:
 https://github.com/Albrightmaduka9053136/text-classification-dimensionality-reduction-group2.git
+
+## Group 2 Members (Authors)
+- Albright Maduka Ifechukwude - 9053136
+- Abdullahi Abdirizak Mohamed - 9082466
+- Kamamo Lesley Wanjiku - 8984971
+
