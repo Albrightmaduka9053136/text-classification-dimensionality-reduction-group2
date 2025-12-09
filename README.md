@@ -21,6 +21,60 @@ We classify tweets into three sentiment categories:
 
 ---
 
+# **To Run Our Project**
+
+## **Prerequisites**
+
+Make sure you have the following installed:
+
+* Python **3.8+**
+* Jupyter Notebook or JupyterLab
+
+You can install everything using:
+
+```bash
+pip install -r requirements.txt
+```
+
+*(If your group wants, I can generate a `requirements.txt` for you.)*
+
+---
+
+## **Running the Notebook**
+
+### **Jupyter Notebook**
+
+1. Open a terminal in the project folder.
+2. Launch Jupyter Notebook:
+
+   ```bash
+   jupyter notebook
+   ```
+3. Open **text_classification_dimensionality_reduction_group2.ipynb**.
+4. Run all cells sequentially from **top to bottom**.
+5. The notebook will automatically:
+
+   * Load the dataset
+   * Preprocess and vectorize tweets
+   * Train the Naive Bayes, SVD, and PCA models
+   * Generate confusion matrices, performance tables, and variance plots
+
+---
+
+## 📂 **Project Structure**
+
+```
+📁 project-folder
+│── 📄 README.md
+│── 📄 Tweets.csv
+│── 📄 text_classification_dimensionality_reduction_group2.ipynb
+│── 📄 requirements.txt
+│── 📁 images/     
+```
+
+---
+
+
 ## **Dataset**
 
 `Description`
