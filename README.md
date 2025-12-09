@@ -21,7 +21,7 @@ We classify tweets into three sentiment categories:
 
 ---
 
-## **Dataset **
+## **Dataset**
 
 `Description`
 
