@@ -36,8 +36,6 @@ You can install everything using:
 pip install -r requirements.txt
 ```
 
-*(If your group wants, I can generate a `requirements.txt` for you.)*
-
 ---
 
 ## **Running the Notebook**
