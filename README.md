@@ -27,7 +27,7 @@ We classify tweets into three sentiment categories:
 
 Make sure you have the following installed:
 
-* Python **3.8+**
+* Python **3.11+**
 * Jupyter Notebook or JupyterLab
 
 You can install everything using:
