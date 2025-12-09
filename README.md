@@ -19,24 +19,6 @@ We classify tweets into three sentiment categories:
 | **1** | Positive  |
 | **2** | Neutral   |
 
-The project follows these major steps:
-
-1️⃣ Data loading & preprocessing
-
-2️⃣ TF-IDF vectorization
-
-3️⃣ Baseline model — **Naive Bayes**
-
-4️⃣ Dimensionality reduction with **SVD**
-
-5️⃣ Logistic Regression with SVD
-
-6️⃣ Dimensionality reduction with **PCA**
-
-7️⃣ Logistic Regression with PCA
-
-8️⃣ Model comparison & visualization
-
 ---
 
 ## **Dataset **
@@ -70,7 +52,6 @@ This imbalance affects model behavior — especially misclassifications.
 We convert tweets into numerical features using TF-IDF, creating a sparse, high-dimensional matrix representing word importance.
 This forms the baseline for all models in the pipeline.
 
----
 
 ## **Baseline Performance – Naive Bayes**
 
@@ -166,11 +147,11 @@ PCA struggles because it reduces the rich semantics of text into low-variance pr
 
 To enhance model performance:
 
-🚀 Use deep learning models (CNNs, LSTMs, BERT)
-🧼 Improve text preprocessing
-📦 Use more features (hashtags, emojis, metadata)
-📈 Handle class imbalance via oversampling or class weighting
-📊 Explore topic modeling or transformer embeddings
+ Use deep learning models (CNNs, LSTMs, BERT)
+ Improve text preprocessing
+ Use more features (hashtags, emojis, metadata)
+ Handle class imbalance via oversampling or class weighting
+ Explore topic modeling or transformer embeddings
 
 
 Github URL:
