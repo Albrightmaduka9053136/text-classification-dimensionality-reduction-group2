@@ -1,125 +1,165 @@
-# Text Classification with Dimensionality Reduction
-**Group 2**
 
-### Overview
+# **Text Classification with Dimensionality Reduction**
 
-In this project, you will perform text classification using multiple machine learning techniques. You will learn how to transform text data into numerical features, reduce dimensionality, and evaluate model performance using various metrics and visualizations.
+###  Group 2 — Machine Learning Project
 
-#### Dataset
-`Data`: A text based dataset.
+In this notebook, we explore how different dimensionality-reduction methods impact sentiment classification on an airline tweets dataset. We compare baseline TF-IDF models with SVD and PCA to discover which method gives the best performance — and why!
 
-`Task`: Binary classification (such as: Positive vs Negative; Spam or Ham, etc).
+---
 
-`Labels`: this project will use supervised learning.
+## **Project Overview**
 
-`Size`: ~2,000 documents/reviews/emails/ any text dataset that you will be able to use binary classification.
+We classify tweets into three sentiment categories:
 
-`Split`: 75% training, 25% testing.
+| Label | Sentiment |
+| ----- | --------- |
+| **0** | Negative  |
+| **1** | Positive  |
+| **2** | Neutral   |
+
+The project follows these major steps:
+
+1️⃣ Data loading & preprocessing
+2️⃣ TF-IDF vectorization
+3️⃣ Baseline model — **Naive Bayes**
+4️⃣ Dimensionality reduction with **SVD**
+5️⃣ Logistic Regression with SVD
+6️⃣ Dimensionality reduction with **PCA**
+7️⃣ Logistic Regression with PCA
+8️⃣ Model comparison & visualization
+
+---
+
+## **Dataset **
+
+`Description`
+
+`Insight`
+
+We work with an airline sentiment dataset containing thousands of tweets.
+Here’s how sentiments are distributed across major airlines:
+
+![Image](./images/sentiment_distribution_by_airline.png)
+
+![Image](./images/class_distribution_before_balancing.png)
+
+From this, we note:
+
+* Negative tweets **dominate** across all airlines
+* Positive feedback is consistently the smallest category
+* Neutral tweets are moderately represented
+
+This imbalance affects model behavior — especially misclassifications.
+
+---
+
+## **Text Vectorization with TF-IDF**
+
+We convert tweets into numerical features using TF-IDF, creating a sparse, high-dimensional matrix representing word importance.
+This forms the baseline for all models in the pipeline.
+
+---
+
+## **Baseline Performance – Naive Bayes**
+
+| Metric            | Score    |
+| ----------------- | -------- |
+| Accuracy          | **0.66** |
+| Weighted F1-Score | **0.66** |
+
+**Naive Bayes performs surprisingly well**, especially on sparse text data.
+It sets the benchmark we compare later models against.
+
+---
+
+## **Dimensionality Reduction**
+
+### 1️⃣ **SVD (Truncated SVD / LSA)**
+
+* Captures *latent semantic structure*
+* Works well on sparse text
+* Higher explained variance in first components
+
+![Image](./images/svd_explained_variance_comparison.png)
+
+### 2️⃣ **PCA**
+
+* Requires dense, standardized data
+* Variance spread is low
+* Performs poorly on sparse TF-IDF
+
+![Image](./images/pca_explained_variance_per_component.png)
+
+![Image](./images/pca_cumulative_explained_variance.png)
+
+### 📉 PCA vs SVD Explained Variance
+
+![Image](./images/pca_vs_svd_explained_variance_comparison.png)
+
+**Takeaway:**
+🔸 SVD captures far more useful information early
+🔸 PCA loses semantic meaning → harms model performance
+
+---
+
+## **Logistic Regression Results**
+
+### **With SVD**
+
+| Metric            | Score    |
+| ----------------- | -------- |
+| Accuracy          | **0.65** |
+| Weighted F1-Score | **0.65** |
+
+Balanced performance with strong semantic preservation.
+
+### **With PCA**
+
+| Metric            | Score    |
+| ----------------- | -------- |
+| Accuracy          | **0.48** |
+| Weighted F1-Score | **0.48** |
+
+PCA struggles because it reduces the rich semantics of text into low-variance projections.
+
+---
+
+## 🧩 **Confusion Matrix Comparison**
 
 
-**Learning Objectives**
-By completing this project, you will understand and implement:
+![Image](./images/all_confusion_matrices_comparison.png)
 
-- TF-IDF - Convert text to numerical features
-- Confusion Matrix - Evaluate classification performance with detailed error analysis
-- SVD (Singular Value Decomposition) 
-- PCA (Principal Component Analysis) 
-- Model Evaluation - Compare different approaches
+---
 
-### Project Steps
-**Step 1: Data Loading and Preprocessing**
-- Load the dataset
-- Split into training and test sets
-- Explore the data distribution
-- Apply text preprocessing (optional: remove stopwords, lowercase, etc.)
+## 📝 **Model Comparison Summary**
 
-**Step 2: TF-IDF Feature Extraction**
-- Convert text documents into numerical TF-IDF 
+| Model                         | Accuracy | Best Strength                | Weakness                                        |
+| ----------------------------- | -------- | ---------------------------- | ----------------------------------------------- |
+| **Naive Bayes**               | ⭐ 0.66   | Fast, strong baseline        | Struggles with neutral class                    |
+| **SVD + Logistic Regression** | ⭐ 0.65   | Preserves semantic structure | Small drop from TF-IDF baseline                 |
+| **PCA + Logistic Regression** | ⚠️ 0.48  | —                            | Loses semantic meaning, many misclassifications |
 
-- Understand how TF-IDF weights terms by importance
+---
 
-- Examine the vocabulary size and sample features
+## 🧠 **Key Takeaways**
 
-- Visualize the TF-IDF matrix structure
+* **SVD is the best dimensionality reduction method for text.**
+* PCA removes too much meaning → poor model accuracy.
+* Naive Bayes remains a powerful baseline on sparse TF-IDF data.
+* Airline sentiment is heavily skewed negative, impacting classification difficulty.
 
+---
 
-**Step 3: Baseline Model - Naive Bayes with TF-IDF**
+## **Future Improvements**
 
-YOU WILL IMPLEMENT:
+To enhance model performance:
 
-- Train a Naive Bayes classifier on the TF-IDF features
-
-- Make predictions on the test set
-
-- Create and visualize a confusion matrix to analyze:
-
-    - True Positives (TP)
-
-    - True Negatives (TN)
-
-    - False Positives (FP)
-
-    - False Negatives (FN)
-
-- Calculate accuracy, precision, recall, and F1-score
-
-- Interpret the results: What types of errors is the model making?
+🚀 Use deep learning models (CNNs, LSTMs, BERT)
+🧼 Improve text preprocessing
+📦 Use more features (hashtags, emojis, metadata)
+📈 Handle class imbalance via oversampling or class weighting
+📊 Explore topic modeling or transformer embeddings
 
 
-**Step 4: Dimensionality Reduction with SVD**
-
-- Apply Truncated SVD (Latent Semantic Analysis) to reduce TF-IDF dimensions
-
-- Reduce from ~500-5000 features to 50-100 components
-
-- Visualize the explained variance ratio
-
-- Explain in your markdowns how SVD captures semantic relationships in text, and what it means for your data.
-
-
-**Step 5: Model Training - Logistic Regression with SVD**
-
-YOU WILL IMPLEMENT:
-
-- Train a Logistic Regression classifier on SVD-reduced features
-
-- Make predictions on the test set
-
-- Create and visualize a confusion matrix for the SVD model
-
-- Compare performance with the baseline Naive Bayes model
-
-- Analyze: Did dimensionality reduction help or hurt performance?
-
-- Discuss on the markdowns: How does reducing dimensions affect model accuracy and speed?
-
-
-**Step 6: Dimensionality Reduction with PCA**
-
-- Apply Principal Component Analysis (PCA) to the TF-IDF features
-
-- First standardize the data (required for PCA)
-
-- Reduce to the same number of components as SVD for fair comparison
-
-- Compare PCA vs SVD variance curves
-
-
-**Step 7: Model Training - Logistic Regression with PCA**
-
-YOU WILL IMPLEMENT:
-
-- Train a Logistic Regression classifier on PCA-reduced features
-
-- Make predictions on the test set
-
-- Create and visualize a confusion matrix for the PCA model
-
-- Compare performance with both previous models
-
-- Analyze: Which dimensionality reduction technique works better for text data?
-
-
-**Step 8: Visual Comparison**
-
-- Visualize all three confusion matrices side-by-side
+Github URL:
+https://github.com/Albrightmaduka9053136/text-classification-dimensionality-reduction-group2.git
