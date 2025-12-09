@@ -130,7 +130,7 @@ PCA struggles because it reduces the rich semantics of text into low-variance pr
 | ----------------------------- | -------- | ---------------------------- | ----------------------------------------------- |
 | **Naive Bayes**               | ⭐ 0.66   | Fast, strong baseline        | Struggles with neutral class                    |
 | **SVD + Logistic Regression** | ⭐ 0.65   | Preserves semantic structure | Small drop from TF-IDF baseline                 |
-| **PCA + Logistic Regression** | ⚠️ 0.48  | —                            | Loses semantic meaning, many misclassifications |
+| **PCA + Logistic Regression** | ⚠️ 0.48  | reduce dimensionality by capturing the directions of maximum variance                           | Loses semantic meaning, many misclassifications |
 
 ---
 
