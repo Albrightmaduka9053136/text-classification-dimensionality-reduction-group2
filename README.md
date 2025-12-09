@@ -9,6 +9,8 @@ In this notebook, we explore how different dimensionality-reduction methods impa
 
 ## **Project Overview**
 
+This project explores machine learning techniques to classify airline tweets into three sentiment categories: negative, positive, and neutral. We begin by transforming raw tweet text into numerical TF-IDF features, followed by evaluating a baseline Naive Bayes classifier. To improve efficiency and examine semantic structure, we apply two dimensionality reduction methods—SVD and PCA—and train Logistic Regression models on the reduced feature sets. Performance is compared using accuracy, classification reports, confusion matrices, and variance analysis. The project highlights how dimensionality reduction impacts sentiment prediction and demonstrates that SVD better preserves textual meaning than PCA.
+
 We classify tweets into three sentiment categories:
 
 | Label | Sentiment |
@@ -20,12 +22,19 @@ We classify tweets into three sentiment categories:
 The project follows these major steps:
 
 1️⃣ Data loading & preprocessing
+
 2️⃣ TF-IDF vectorization
+
 3️⃣ Baseline model — **Naive Bayes**
+
 4️⃣ Dimensionality reduction with **SVD**
+
 5️⃣ Logistic Regression with SVD
+
 6️⃣ Dimensionality reduction with **PCA**
+
 7️⃣ Logistic Regression with PCA
+
 8️⃣ Model comparison & visualization
 
 ---
@@ -33,6 +42,9 @@ The project follows these major steps:
 ## **Dataset **
 
 `Description`
+
+We got our dataset from Kaggle ([Link](https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment/data))
+The Twitter US Airline Sentiment dataset, released by CrowdFlower (now Figure Eight), contains 14,640 tweets directed at six major U.S. airlines: American, United, Southwest, Delta, US Airways, and Virgin America. Each tweet is manually labeled with one of three sentiments—negative, neutral, or positive—making it a high-quality dataset for supervised sentiment analysis.
 
 `Insight`
 
